@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Pambo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaquerys.css">
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Rafael Pambo</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">Rafael Pambo</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Project</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <section id="profile">
+        <div class="section__pic-container">
+            <img class="rotante" src="assets/rafael.jpeg" alt="rafael pambo">
+        </div>
+        <div class="section__text">
+            <p class="section__text__p1">Hello, I'm</p>
+            <h1 class="title">Rafael Pambo</h1>
+            <p class="section__text__p2">DevSecOps</p>
+            <div class="btn-conteiner">
+                <button class="btn btn-color-2" onclick="window.open('assets/rafael-pambo.pdf')">
+                    Download CV PT
+                </button>
+                <button class="btn btn-color-2" onclick="window.open('assets/rafael-pambo.pdf')">
+                    Download CV EN
+                </button>
+                <button class="btn btn-color-1" onclick="location.href='/#contact'">
+                    Contact Info
+                </button>
+            </div>
+            <div class="social-container">
+                <img src="assets/linkedin.png" alt="My linkedin profile" class="icon" onclick="location.href='https://www.linkedin.com/in/rafaelkitoco/'">
+                <img src="assets/github.png" alt="My github profile" class="icon" onclick="location.href='https://github.com/RafaelKitoco'">
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About me</h1>
+        <div class="section-container">
+            <div class="section__pic-container">
+                <img src="assets/rafael-about.jpg" alt="profile picture about" class="about-pic">
+            </div>
+            <div class="about-details-container">
+                <div class="about-containers">
+                    <div class="details-container">
+                        <img src="./assets/experience.png" alt="experience Icon" class="icon">
+                        <h3>Experience</h3>
+                        <p>1 years <br> Software Developement</p>
+                        <p>2 years <br> Wordpress Developement</p>
+                    </div>
+                    <div class="details-container">
+                        <img src="assets/education.png" alt="educattion" class="icon">
+                        <h3>Education</h3>
+                        <p>Middle technician at Girassol school complex <br> Student at 42 Luanda</p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <p>Programming is one of the most fun things I do on my journey and I love learning new things.
+
+                        Currently, I study software engineering at one of the most innovative schools in the world, 42 Luanda, part of the global group, 42 Network. Here I learn to create solutions from scratch and at a low level, developing projects that cover logic, data structures, algorithms, networks, Unix, OpenGL and much more.
+                        
+                        My goal is to use my creativity, versatility and knowledge to develop quality software and positively impact the teams I am and will be part of during my professional journey.</p>
+                </div>
+            </div>
+        </div>
+        <img src="assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'">
+    </section>
+    <section id="experience">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-containers">
+            <div class="about-containers">
+                <div class="details-container">
+                    <h2 class="experience-sub-tile">Wordpress Developement</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Elementor</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>SEO</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Elementor</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-tile">Back-end Development</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>SQL</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Django</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Git</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Swagger</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-tile">DevOps & Infrastructure</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Nginx</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Docker</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Kubernete</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Redis</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>FTP</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-tile">Programming Languages</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>C</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>C++</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="assets/checkmark.png" alt="experience icon" class="icon">
+                            <div>
+                                <h3>Python</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'">
+    </section>
+    <section id="projects">
+        <p class="section__text__p1">Brows My Recente</p>
+        <h1 class="title">Projects</h1>
+        <div class="experience-details-containers">
+            <div class="about-containers">
+                <div class="details-container color-container">
+                    <div class="article-container">
+                        <img src="assets/Merosservos-Website.png" alt="merosserver project" class="project-img">
+                    </div>
+                    <h2 class="experience-sub-tile project-title">Merosservos-Website</h2>
+                    <div class="btn-conteiner">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://merosservos.fluxo-digital.com/'">
+                            Website
+                        </button>
+                    </div>
+                </div>
+                <div class="details-container color-container">
+                    <div class="article-container">
+                        <img src="assets/docker.png" alt="merosserver project" class="project-img">
+                    </div>
+                    <h2 class="experience-sub-tile project-title">Inception</h2>
+                    <div class="btn-conteiner">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://merosservos.fluxo-digital.com/'">
+                            Github
+                        </button>
+                    </div>
+                </div>
+                <div class="details-container color-container">
+                    <div class="article-container">
+                        <img src="assets/born.png" alt="merosserver project" class="project-img">
+                    </div>
+                    <h2 class="experience-sub-tile project-title">Born to be root</h2>
+                    <div class="btn-conteiner">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://merosservos.fluxo-digital.com/'">
+                            Github
+                        </button>
+                    </div>
+                </div>
+                <div class="details-container color-container">
+                    <div class="article-container">
+                        <img src="assets/libft.png" alt="merosserver project" class="project-img">
+                    </div>
+                    <h2 class="experience-sub-tile project-title">C library</h2>
+                    <div class="btn-conteiner">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://merosservos.fluxo-digital.com/'">
+                            Github
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'">
+    </section>
+    <section id="contact">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title ">Contact Me</h1>
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <img src="assets/email.png" alt="email icon" class="icon contact-icon email-icon">
+                <p><a href="https://www.linkedin.com/in/rafaelkitoco/">rafaelgeniokitoco@gmail.com</a></p>
+            </div>
+            <div class="contact-info-container">
+                <img src="assets/linkedin.png" alt="linkedin icon" class="icon contact-icon email-icon">
+                <p><a href="">linkedIn</a></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2025 Rafael Kitoco Pambo. All right Reserved</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

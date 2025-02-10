@@ -1,0 +1,127 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: 
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - 443:443
+    environment:
+      - DOMAIN_NAME=${DOMAIN_NAME}
+    volumes:
+      - ./requirements/nginx/conf:/etc/nginx/conf.d
+      - nginx:/var/log/nginx
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - WORDPRESS_DB_HOST=mariadb
+      - WORDPRESS_DB_NAME=${MYSQL_DATABASE}
+      - WORDPRESS_DB_USER=${MYSQL_USER}
+      - WORDPRESS_DB_PASSWORD=FILE__/run/secrets/db_password
+      - WORDPRESS_DEBUG=1
+      - DOMAIN_NAME=${DOMAIN_NAME}
+      - BRAND=${BRAND}
+      - WORDPRESS_ADMIN=${WORDPRESS_ADMIN}
+      - WORDPRESS_ADMIN_PASSWORD=FILE__/run/secrets/wp_admin_password
+      - WORDPRESS_ADMIN_EMAIL=${WORDPRESS_ADMIN_EMAIL}
+      - LOGIN=${LOGIN}
+      - WP_USER_EMAIL=${WP_USER_EMAIL}
+      - WP_USER_PWD=FILE__/run/secrets/wp_db_user_password
+    volumes:
+      - wordpress:/var/www/html
+      - ./.env:/var/www/html/.env
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000"] 
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    secrets:
+     - db_password
+     - db_root_password
+     - wp_admin_password
+     - wp_db_user_password
+      
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=FILE__/run/secrets/db_password
+    networks:
+      - inception
+    volumes:
+      - mariadb:/var/lib/mysql
+      - ./requirements/mariadb/tools/healthcheck.sh:/usr/local/bin/healthcheck.sh
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/healthcheck.sh"] 
+      interval: 10s
+      timeout: 5s
+      retries: 1
+    secrets:
+     - db_password
+     - db_root_password
+
+volumes:
+  mariadb:
+    driver: local
+    driver_opts:
+        type: none
+        o: bind
+        device: /home/rpambo/data/mariadb
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/rpambo/data/wordpress
+  nginx:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/rpambo/data/nginx
+
+secrets:
+  db_password:
+    file : ../secrets/db_password.txt
+  db_root_password:
+    file : ../secrets/db_root_password.txt
+  wp_admin_password:
+    file : ../secrets/wp_admin_password.txt
+  wp_db_user_password:
+    file : ../secrets/wp_db_user_password.txt
+
+networks:
+  inception:
+    name: inception
+    driver: bridge

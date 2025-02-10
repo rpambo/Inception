@@ -1,0 +1,31 @@
+server {
+    listen 443 http2 ssl;
+    
+    server_name DOMAIN_NAME www.DOMAIN_NAME;
+    
+    ssl on;
+    ssl_certificate /etc/ssl/certs/rpambo.crt;
+    ssl_certificate_key /etc/ssl/private/rpambo.key;
+
+    ssl_protocols TLSv1.3;
+    root /var/www/html;
+
+    index index.php;
+
+    location / {
+        autoindex on;
+        autoindex_format html;
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        if (!-f $document_root$fastcgi_script_name)
+        { 
+            return 404;
+        }
+        try_files $uri =404;
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass wordpress:9000;
+    }
+}
