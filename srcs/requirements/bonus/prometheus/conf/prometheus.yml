@@ -1,0 +1,31 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx:9113']
+
+  - job_name: 'wordpress'
+    static_configs:
+      - targets: ['wordpress:9000']
+
+  - job_name: 'mariadb'
+    static_configs:
+      - targets: ['mariadb:9104']
+
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:9121']
+
+  - job_name: 'ftp'
+    static_configs:
+      - targets: ['FTP:21']
+
+  - job_name: 'adminer'
+    static_configs:
+      - targets: ['adminer:8080']

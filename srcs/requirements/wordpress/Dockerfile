@@ -11,7 +11,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sendmail && \
     mkdir -p /run/php
 
-COPY conf/www.conf  /etc/php/8.3/fpm/pool.d/www.conf
+COPY /conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 WORKDIR /var/www/html
 RUN chown -R www-data:www-data /var/www/html
@@ -24,4 +24,3 @@ COPY ./tools/scripts.sh /tools/scripts.sh
 RUN chmod +x /tools/scripts.sh
 
 ENTRYPOINT ["/tools/scripts.sh"]
-

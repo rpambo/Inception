@@ -13,7 +13,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     redis-server && \
     mkdir -p /run/php 
 
-COPY conf/www.conf  /etc/php/8.3/fpm/pool.d/www.conf
+
+COPY /conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 WORKDIR /var/www/html
 RUN chown -R www-data:www-data /var/www/html

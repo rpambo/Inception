@@ -15,3 +15,4 @@ RUN chmod +x /tmp/certificate.sh
 COPY ./conf/default /etc/nginx/sites-available/default
 
 ENTRYPOINT ["/tmp/certificate.sh"]
+

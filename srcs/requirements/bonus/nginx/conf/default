@@ -1,8 +1,7 @@
 server {
     listen 443 http2 ssl;
-    server_name DOMAIN_NAME www.DOMAIN_NAME;
-    
-    ssl on;
+    server_name $DOMAIN_NAME www.$DOMAIN_NAME;
+
     ssl_certificate /etc/ssl/certs/rpambo.crt;
     ssl_certificate_key /etc/ssl/private/rpambo.key;
     
@@ -11,7 +10,6 @@ server {
     
     index index.php;
 
-    # Configuração para o resto do site
     location / {
         autoindex on;
         autoindex_format html;
@@ -28,3 +26,4 @@ server {
         fastcgi_pass wordpress:9000;
     }
 }
+
